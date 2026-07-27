@@ -1,3 +1,5 @@
+CREATE SCHEMA bronze;
+
 CREATE TABLE bronze.customer (
     customer_id VARCHAR(10) PRIMARY KEY,
     customer_name VARCHAR(100) NOT NULL,
