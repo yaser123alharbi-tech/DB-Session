@@ -12,14 +12,14 @@ AS $$
 BEGIN
     MERGE INTO TARGET.Country_Dim AS tgt
     USING STG.country AS src
-    ON tgt.country_code = src.country_code          -- how we match rows
+    ON tgt.country_code = src.country_code  
 
-    WHEN MATCHED THEN                                 -- row already exists -> update it
+    WHEN MATCHED THEN 
         UPDATE SET
             country_name = src.country_name,
             region       = src.region
 
-    WHEN NOT MATCHED THEN                              -- row doesn't exist yet -> insert it
+    WHEN NOT MATCHED THEN   
         INSERT (country_code, country_name, region)
         VALUES (src.country_code, src.country_name, src.region);
 
